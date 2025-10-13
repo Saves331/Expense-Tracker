@@ -4,6 +4,7 @@ import TotalSpent from './components/TotalSpent'
 import ExpenseInput from './components/ExpenseInput'
 import { Chart } from "react-google-charts";
 import Date from './components/Date'
+import ExpenseList from './components/ExpenseList'
 
 function App() {
   const [expenses, setExpenses] = useState([])
@@ -14,17 +15,20 @@ function App() {
     setTotalSpent((prev) => prev + expense.price)
   }
 
+
+  const groupedData = expenses.reduce((acc, expense) => {
+    const category = expense.category || "Uncategorized";
+    acc[category] = (acc[category] || 0) + expense.price;
+    return acc;
+  }, {})
+
   const data = [
-    ["Task", "Hours per Day"],
-    ["Work", 10],
-    ["Eat", 2],
-    ["Commute", 2],
-    ["Watch TV", 2],
-    ["Sleep", 7],
+    ["Expense", "Amount"],
+    ...Object.entries(groupedData)
   ];
 
   const options = {
-    title: "My Daily Activities",
+    title: "My Expenses",
   };
 
   return (
@@ -34,22 +38,17 @@ function App() {
 
     
      <TotalSpent totalSpent={totalSpent}></TotalSpent>
-    {/*  <ExpenseInput onAddExpense={handleAddExpense}></ExpenseInput> */}
+     <ExpenseInput onAddExpense={handleAddExpense}></ExpenseInput>
 
 
-    <div className='flex flex-row-reverse py-5'>
-      <div className='w-3/5'>
-      <ul>
-      {expenses.map((expense, index) => (
-        <li key={index}>
-          {expense.name}: ${expense.price}
-        </li>
-      ))}
-     </ul>
+    <div className='flex flex-row-reverse py-5 h-[50vh] gap-8'>
 
-    </div>
+      <div className='w-3/5 h-full bg-white'> 
+      <ExpenseList expenses={expenses}></ExpenseList>
+      </div>
       
-      <div className='w-2/5'>
+      
+      <div className='w-2/5 h-full bg-white p-4 flex justify-center items-center'>
         <Chart
       chartType="PieChart"
       data={data}
