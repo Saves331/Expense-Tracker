@@ -5,6 +5,7 @@ import ExpenseInput from './components/ExpenseInput'
 import { Chart } from "react-google-charts";
 import Date from './components/Date'
 import ExpenseList from './components/ExpenseList'
+import AddTransactionBtn from './components/AddTransactionBtn'
 
 function App() {
   const [expenses, setExpenses] = useState([])
@@ -44,7 +45,7 @@ function App() {
     <div className='flex flex-row-reverse py-5 h-[50vh] gap-8'>
 
       <div className='w-3/5 h-full bg-white'> 
-      <ExpenseList expenses={expenses}></ExpenseList>
+      <ExpenseList expenses={expenses} AddTransactionBtn={AddTransactionBtn}></ExpenseList>
       </div>
       
       

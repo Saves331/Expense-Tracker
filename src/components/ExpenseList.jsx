@@ -1,13 +1,20 @@
 import React from 'react'
 
-function ExpenseList({expenses}) {
+
+function ExpenseList({expenses, AddTransactionBtn}) {
 
     const headline = "Transaction this month"
     
   return (
     <div className='p-8'>
-        <h2 className='text-xl text-gray-500 font-bold'>{headline.toUpperCase()}</h2>
 
+        <div className='flex justify-between items-center'>
+            <h2 className='text-xl text-gray-500 font-bold'>{headline.toUpperCase()}</h2>
+
+             <AddTransactionBtn></AddTransactionBtn>
+
+        </div>
+        
         <div className='h-full'>
 
          

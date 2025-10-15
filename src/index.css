@@ -33,3 +33,11 @@ th {
 .content-table tbody tr {
   border-bottom: 1px solid #dddddd;
 }
+
+.expense-form input {
+  padding: 15px;
+  border: 2px solid #ddd;
+  width: 300px;
+  font-size: 20px;
+  font-weight: 600;
+}
