@@ -11,13 +11,18 @@ function ExpenseList({expenses}) {
         <div className='h-full'>
 
          
-            <table className='mt-6'>
-                <tr>
+            <table className='border-collapse text-[1.2em] min-w-[100%] content-table my-8'> {/* Content table */}
+
+            <thead>
+                <tr className='bg-[#f3f4f6] text-[#4538b1] text-left font-bold'>
                     <th>PAYEE</th>
                     <th>DATE</th>
                     <th>AMOUNT</th>
                     <th>CATEGORY</th>
                 </tr>
+            </thead>
+
+            <tbody>
                 {expenses.map((expense, index) => (
                     <tr key={index}>
                         <td>
@@ -39,6 +44,8 @@ function ExpenseList({expenses}) {
                     
                     </tr>
                 ))}
+            </tbody>
+                
             </table>
         </div>
     </div>

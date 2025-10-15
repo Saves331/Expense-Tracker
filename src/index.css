@@ -4,7 +4,7 @@
 body {
   @apply bg-[#faf5ff];
 }
-
+/* 
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -19,4 +19,17 @@ td, th {
 
 th {
   background-color: #dddddd;
+} */
+
+.content-table th,
+.content-table td {
+  padding: 18px 15px;
+}
+
+.content-table thead tr th {
+  width: 25%;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
 }
