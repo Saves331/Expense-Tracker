@@ -1,10 +1,15 @@
-import React from 'react'
+
 import AddTransactionBtn from './AddTransactionBtn'
 
 
 function ExpenseList({expenses, onAddClick}) {
 
     const headline = "Transaction this month"
+    
+    function formDate(originalDate) {
+        const [year, month, day] = originalDate.split("-")
+        return `${day}.${month}. ${year}`;
+    }
     
   return (
     <div className='p-8'>
@@ -38,7 +43,7 @@ function ExpenseList({expenses, onAddClick}) {
                         </td>
 
                         <td>
-                            {expense.date}
+                            {formDate(expense.date)}
                         </td>
 
                         <td>

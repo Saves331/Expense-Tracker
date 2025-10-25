@@ -12,7 +12,7 @@ function TotalSpent({totalSpent}) {
         </h2>
 
         <h1 className="text-5xl font-semibold">
-            ${totalSpent} 
+            {totalSpent}€ 
        </h1>
     </div>
   )
