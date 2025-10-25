@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 function ExpenseInput({ onAddExpense, isOpen, setIsOpen }) {
   const today = new Date().toISOString().split("T")[0];
-  const [ExpenseItem, setExpenseItem] = useState({ name: "Ola", price: 150, date: today, category: "Health" });
+  const [ExpenseItem, setExpenseItem] = useState({ name: "Dummy", price: 150, date: today, category: "Health" });
   const categories = ["Gifts", "Dining", "Groceries", "Health", "Entertainment", "Shopping", "Education", "Travel", "Home", "Utilities", "Transportation"]
 
   const handleChange = (e) => {
@@ -18,7 +18,7 @@ function ExpenseInput({ onAddExpense, isOpen, setIsOpen }) {
     if (onAddExpense) {
       onAddExpense({ ...ExpenseItem, price: parseFloat(ExpenseItem.price) });
     }
-    setExpenseItem({ name: "Ola", price: 150, date: today, category: "Health" });
+    setExpenseItem({ name: "Dummy", price: 150, date: today, category: "Health" });
   };
 
   return (

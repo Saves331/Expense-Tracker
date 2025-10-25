@@ -44,12 +44,12 @@ function App() {
 
     <div className='flex flex-col py-5 gap-8'>
 
-      <div className='w-full h-full bg-white'> 
+      <div className='w-full bg-white'> 
       <ExpenseList expenses={expenses} onAddClick={() => setIsOpen(true)}></ExpenseList>
       </div>
       
       
-      <div className='w-full h-full bg-white p-4 flex justify-center items-center'>
+      <div className='bg-white h-[40vh] p-4 flex justify-center items-center'>
         <Chart
       chartType="PieChart"
       data={data}
