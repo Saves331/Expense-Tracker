@@ -1,8 +1,19 @@
 
+import { useState } from 'react';
 import AddTransactionBtn from './AddTransactionBtn'
 
 
 function ExpenseList({expenses, onAddClick}) {
+    const [page, setPage] = useState(1)
+    const itemsPerPage = 7;
+    const startIndex = (page-1) * itemsPerPage;
+    const endIndex = startIndex+itemsPerPage
+    const currentItems = expenses.slice(startIndex, endIndex)
+
+    const totalPages = Math.ceil(expenses.length / itemsPerPage)
+
+
+    
 
     const headline = "Transaction this month"
     
@@ -35,8 +46,8 @@ function ExpenseList({expenses, onAddClick}) {
                 </tr>
             </thead>
 
-            <tbody>
-                {expenses.map((expense, index) => (
+            <tbody className='font-semibold'>
+                {currentItems.map((expense, index) => (
                     <tr key={index}>
                         <td>
                             {expense.name} 
@@ -60,6 +71,15 @@ function ExpenseList({expenses, onAddClick}) {
             </tbody>
                 
             </table>
+
+            <div className='flex gap-4 justify-center'>
+                {Array.from({length: totalPages}, (_, index) => (
+                <button key={index} onClick={() => setPage(index+1)} className="underline bg-[#4538b1] text-white font-bold py-2 px-4 rounded shadow-lg hover:bg-[#322694] transition duration-300 cursor-pointer onClick={onClick}>">
+                    {index+1}
+                </button>
+            ))}
+            </div>
+            
         </div>
     </div>
   )

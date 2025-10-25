@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 
 function ExpenseInput({ onAddExpense, isOpen, setIsOpen }) {
   const today = new Date().toISOString().split("T")[0];
-  const [ExpenseItem, setExpenseItem] = useState({ name: "", price: "", date: today, category: "" });
-  
+  const [ExpenseItem, setExpenseItem] = useState({ name: "Ola", price: 150, date: today, category: "Health" });
+  const categories = ["Gifts", "Dining", "Groceries", "Health", "Entertainment", "Shopping", "Education", "Travel", "Home", "Utilities", "Transportation"]
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,7 +18,7 @@ function ExpenseInput({ onAddExpense, isOpen, setIsOpen }) {
     if (onAddExpense) {
       onAddExpense({ ...ExpenseItem, price: parseFloat(ExpenseItem.price) });
     }
-    setExpenseItem({ name: "", price: "", date: today, category: "" });
+    setExpenseItem({ name: "Ola", price: 150, date: today, category: "Health" });
   };
 
   return (
@@ -43,7 +43,7 @@ function ExpenseInput({ onAddExpense, isOpen, setIsOpen }) {
           <input name='price' type="number" placeholder='Expense Amount' value={ExpenseItem.price} onChange={handleChange} required />
           <input name='date' type="date" value={ExpenseItem.date} onChange={handleChange} lang="en-GB" required />
 
-          <label htmlFor="category" className='font-medium'>Choose a car:</label>
+          <label htmlFor="category" className='font-medium'>Choose a Category:</label>
           <select
             required
             name="category"
@@ -52,10 +52,11 @@ function ExpenseInput({ onAddExpense, isOpen, setIsOpen }) {
             onChange={handleChange}
           >
             <option value="">--Please choose an option--</option>
-            <option value="audi">Audi</option>
-            <option value="bmw">BMW</option>
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
+            {categories.map((category, index) => (
+                <option value={category} key={index}>
+                    {category}
+                </option>
+            ))}
           </select>
 
           <button type='submit' className='bg-[#4538b1] text-white font-bold p-4 text-xl rounded cursor-pointer hover:bg-[#322694] transition duration-300'>

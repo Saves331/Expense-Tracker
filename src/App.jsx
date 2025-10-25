@@ -42,20 +42,20 @@ function App() {
      <ExpenseInput onAddExpense={handleAddExpense} isOpen={isOpen} setIsOpen={setIsOpen}></ExpenseInput>
 
 
-    <div className='flex flex-row-reverse py-5 h-[50vh] gap-8'>
+    <div className='flex flex-col py-5 gap-8'>
 
-      <div className='w-3/5 h-full bg-white'> 
+      <div className='w-full h-full bg-white'> 
       <ExpenseList expenses={expenses} onAddClick={() => setIsOpen(true)}></ExpenseList>
       </div>
       
       
-      <div className='w-2/5 h-full bg-white p-4 flex justify-center items-center'>
+      <div className='w-full h-full bg-white p-4 flex justify-center items-center'>
         <Chart
       chartType="PieChart"
       data={data}
       options={options}
       width={"100%"}
-      height={"400px"}
+      height={"100%"}
     />
       </div>
     
