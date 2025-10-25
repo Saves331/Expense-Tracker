@@ -1,7 +1,8 @@
 import React from 'react'
+import AddTransactionBtn from './AddTransactionBtn'
 
 
-function ExpenseList({expenses, AddTransactionBtn}) {
+function ExpenseList({expenses, onAddClick}) {
 
     const headline = "Transaction this month"
     
@@ -11,7 +12,7 @@ function ExpenseList({expenses, AddTransactionBtn}) {
         <div className='flex justify-between items-center'>
             <h2 className='text-xl text-gray-500 font-bold'>{headline.toUpperCase()}</h2>
 
-             <AddTransactionBtn></AddTransactionBtn>
+             <AddTransactionBtn onClick={onAddClick}></AddTransactionBtn>
 
         </div>
         

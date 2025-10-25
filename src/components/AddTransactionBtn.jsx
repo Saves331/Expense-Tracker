@@ -1,15 +1,10 @@
 import React, { useState } from 'react'
 
-function AddTransactionBtn() {
+function AddTransactionBtn({onClick}) {
 
-/*     const [isOpen, setIsOpen] = useState(false)
-
-    function handlePopup() {
-
-    } */
 
   return (
-    <button className='bg-[#4538b1] text-white font-bold py-2 px-4 rounded shadow-lg hover:bg-[#322694] transition duration-300 cursor-pointer'>
+    <button className='bg-[#4538b1] text-white font-bold py-2 px-4 rounded shadow-lg hover:bg-[#322694] transition duration-300 cursor-pointer' onClick={onClick}>
         Add
     </button>
   )

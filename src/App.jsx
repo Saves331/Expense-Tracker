@@ -5,11 +5,11 @@ import ExpenseInput from './components/ExpenseInput'
 import { Chart } from "react-google-charts";
 import Date from './components/Date'
 import ExpenseList from './components/ExpenseList'
-import AddTransactionBtn from './components/AddTransactionBtn'
 
 function App() {
   const [expenses, setExpenses] = useState([])
   const [totalSpent, setTotalSpent] = useState(0)
+  const [isOpen, setIsOpen] = useState(false); 
 
   const handleAddExpense = (expense) => {
     setExpenses((prev) => [...prev, expense])
@@ -39,13 +39,13 @@ function App() {
 
     
      <TotalSpent totalSpent={totalSpent}></TotalSpent>
-     <ExpenseInput onAddExpense={handleAddExpense}></ExpenseInput>
+     <ExpenseInput onAddExpense={handleAddExpense} isOpen={isOpen} setIsOpen={setIsOpen}></ExpenseInput>
 
 
     <div className='flex flex-row-reverse py-5 h-[50vh] gap-8'>
 
       <div className='w-3/5 h-full bg-white'> 
-      <ExpenseList expenses={expenses} AddTransactionBtn={AddTransactionBtn}></ExpenseList>
+      <ExpenseList expenses={expenses} onAddClick={() => setIsOpen(true)}></ExpenseList>
       </div>
       
       
